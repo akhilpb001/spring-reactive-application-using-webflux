@@ -1,0 +1,32 @@
+# Mac OS X
+.DS_Store
+**/.DS_Store
+
+# Thumbnails
+Thumbs.db
+
+# Java
+*.class
+
+bin/
+.settings/
+
+# Eclipse files
+.project
+.classpath
+.metadata/
+
+# IntelliJ
+.idea/
+*.iml
+*.ipr
+*.iws
+atlassian-ide-plugin.xml
+
+# Maven files
+target/
+
+# Package Files #
+*.jar
+*.war
+*.ear

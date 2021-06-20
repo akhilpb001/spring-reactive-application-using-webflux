@@ -1,0 +1,8 @@
+CREATE SCHEMA IF NOT EXISTS product_db;
+
+CREATE TABLE IF NOT EXISTS product_db.products (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(250) NULL,
+  description VARCHAR(250) NULL,
+  price DECIMAL(10, 2) NOT NULL
+);

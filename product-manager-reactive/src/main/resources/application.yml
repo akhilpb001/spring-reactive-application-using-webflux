@@ -1,0 +1,9 @@
+server:
+  port: 9191
+spring:
+  webflux:
+    base-path: /api
+  r2dbc:
+    url: r2dbc:h2:mem:///product_db?options=DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    name: sa
+    password: password
