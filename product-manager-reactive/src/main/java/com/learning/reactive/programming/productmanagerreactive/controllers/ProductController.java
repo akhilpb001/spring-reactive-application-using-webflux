@@ -4,6 +4,7 @@ import com.learning.reactive.programming.productmanagerreactive.models.Product;
 import com.learning.reactive.programming.productmanagerreactive.models.ProductPrice;
 import com.learning.reactive.programming.productmanagerreactive.services.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,15 +18,25 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/v1/products")
-@RequiredArgsConstructor
 public class ProductController {
 
   private final ProductService productService;
 
   @GetMapping
   public Flux<Product> findAll() {
+    return productService.findAll();
+  }
+
+  @GetMapping(value = "/old/streaming", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+  public Flux<Product> findAllStreamingDeprecated() {
+    return productService.findAll();
+  }
+
+  @GetMapping(value = "/new/streaming", produces = MediaType.APPLICATION_NDJSON_VALUE)
+  public Flux<Product> findAllStreamingNew() {
     return productService.findAll();
   }
 
